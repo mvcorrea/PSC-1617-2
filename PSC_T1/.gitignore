@@ -1,0 +1,8 @@
+# osx related files
+*.DS_Store
+.AppleDouble
+.LSOverride
+
+# c programming
+*.o
+prog

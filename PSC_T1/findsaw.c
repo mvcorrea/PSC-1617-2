@@ -6,13 +6,13 @@
 int findsaw(int value);
 char *toBin(int val);
 
-int main() {
-  printf("Serie 01 PSC 2016/17SV\n");
-  int x = 0xEAEA476BL;
-  printf("%d:\t%s\n", x, toBin(x));
-  printf("%d\n", findsaw(x));
-  return 0;
-}
+// int main() {
+//   printf("Serie 01 PSC 2016/17SV\n");
+//   int x = 0xEAEA476BL;
+//   printf("%d:\t%s\n", x, toBin(x));
+//   printf("%d\n", findsaw(x));
+//   return 0;
+// }
 
 char *toBin(int val) {
   static char binary[39], output[39];  // with spaces

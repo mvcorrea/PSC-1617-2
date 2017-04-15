@@ -1,0 +1,18 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "debug",
+            "type": "cppdbg",
+            "request": "launch",
+            "cwd": "${workspaceRoot}",
+            "program": "${workspaceRoot}/PSC_T1/prog",
+            "filterStderr" : true,
+            "args": [
+                " marcelo "
+            ]
+            //"preLaunchTask": "build"
+            //"logging": { "engineLogging": true, "traceResponse": true }
+        }
+    ]
+}

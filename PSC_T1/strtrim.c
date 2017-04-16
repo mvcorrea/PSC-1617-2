@@ -20,6 +20,8 @@ char *rightTrim(char *str) {
   return str;
 }
 
+
+
 char *strtrim(char *str) { return leftTrim(rightTrim(str)); }
 
 // int main(int argc, char* argv[]) {

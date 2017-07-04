@@ -18,12 +18,14 @@ int floatSign(float val) {  // float signal
   return neg ? -1 : 1;
 }
 
+// NOT USED
 int floatExpt(float val) {  // float expoent
   unsigned *tmp = (unsigned *)&val;
   return pow(2, ((*tmp & EMSK) >> 23) - 127);
 }
 
-// ASK !!! <-----------------------------------------
+// NOT USED (using a float within)
+// ASK !!! <----------------------------------------- (float as return value)
 float floatMant(float val) {  // float mantissa
   unsigned *tmp = (unsigned *)&val;
   unsigned man = (*tmp & MMSK);
@@ -53,14 +55,15 @@ int float_with_int_cmp(float fvalue, int ivalue) {
     return floatRep > ivalue ? 1 : -1;
   }
 }
-
+/*
 int main(int argc, char *argv[]) {
   // float tmp0 = -5.5; // 1|1000 0001|011 0000 0000 0000 0000 0000 (-1*2^2*1.375)
   // float tmp1 = 1.75;	// 0|1000 0000|110 0000 0000 0000 0000 0000 (1*2^1*1.75)
-
   // float see = floatSign(tmp0)*floatExpt(tmp0)*floatMant(tmp0);
   // printf("%f\n", see);
 
   printf("%d\n", float_with_int_cmp(3.75, -5));
-  
+  printf("%d\n", float_with_int_cmp(3.451, 3));
+  printf("%d\n", float_with_int_cmp(-3.7, 2));
 }
+*/

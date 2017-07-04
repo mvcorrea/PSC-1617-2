@@ -2,15 +2,19 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "debug",
+            "name": "debug GDB X64",
             "type": "cppdbg",
             "request": "launch",
+            "stopAtEntry": true,
             "cwd": "${workspaceRoot}",
             "program": "${workspaceRoot}/PSC_T1/prog",
             "filterStderr" : true,
             "args": [
                 " marcelo "
-            ]
+            ],
+               "osx": {
+                "MIMode": "gdb"
+            }
             //"preLaunchTask": "build"
             //"logging": { "engineLogging": true, "traceResponse": true }
         }

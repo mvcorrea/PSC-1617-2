@@ -12,9 +12,8 @@
         return out;
     }
 
-    
+/*   
 int main(int argc, char* argv[]){
-
     char *line = NULL;
     size_t len = 0;
     size_t read = 0;
@@ -28,6 +27,6 @@ int main(int argc, char* argv[]){
         if(out) printf("> %s", line);
         puts("");
     }
-
     return 0;
 }
+*/

@@ -1,18 +1,6 @@
 #include <limits.h>
 #include <stdio.h>
-
 #define INT_BIT (sizeof(int) * CHAR_BIT)
-
-int findsaw(int value);
-char *toBin(int val);
-
-// int main() {
-//   printf("Serie 01 PSC 2016/17SV\n");
-//   int x = 0xEAEA476BL;
-//   printf("%d:\t%s\n", x, toBin(x));
-//   printf("%d\n", findsaw(x));
-//   return 0;
-// }
 
 char *toBin(int val) {
   static char binary[39], output[39];  // with spaces
@@ -29,19 +17,31 @@ char *toBin(int val) {
 }
 
 int findsaw(int value) {
-  int lookup[INT_BIT] = {0};
-  int prv = (value >> 1) & 0b1, cur = 0, pos = 0, len = 0, max = 0;
-  for (int x = 0; x < INT_BIT; x++) {
+  int prv = (value & 0b1); 
+  //printf("x\tbit\tlen\tpos\tmaxlen\tmaxpos\n");
+  int cur = 0, pos = 0, len = 0, maxpos = 0, maxlen = 0;
+  for (int x = 0, flag = 0; x < INT_BIT; x++) { // cycle thru all bits
     cur = (value >> x) & 0b1;
-    (prv != cur) ? (len++, pos = x) : (len = 0, pos++);
+    if(prv != cur){ // saw detected
+      len++;
+    } else {
+      if (len > maxlen) maxlen = len, maxpos = pos;
+      len = 1, pos = x, flag = 0;
+    }
     prv = cur;
-    printf("%d: %d[%d, %d]\n", x, cur, pos, len);
+    //printf("%d\t%d\t%d\t%d\t%d\t%d\n", x, cur, len, pos, maxlen, maxpos);
   }
-  printf("\n");
-
-  printf("%d - %d\n", pos, len);
-
-  // printf("value: %d\n", value);
-
-  return value;
+  return maxpos;
 }
+
+/*
+int main() {
+  printf("Serie 01 PSC 2016/17SV\n");
+   int x = 0xEAEA476BL; // 23
+   // int x = 0xAC54B56BL; // 6 
+  
+  printf("%d:\t%s\n", x, toBin(x));
+  printf("\n%d\n", findsaw(x));
+  return 0;
+}
+*/
